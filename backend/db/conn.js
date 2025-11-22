@@ -10,6 +10,7 @@ async function main() {
     console.log("Erro ao conectar no MongoDB:", error);
   }
 }
- 
 
-module.exports = main; 
+
+main();
+module.exports = mongoose;

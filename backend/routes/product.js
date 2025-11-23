@@ -1,9 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const productController = require("../controllers/productController");
+const Product = require("../models/Product");
 
 
-router.post("/", productController.create);
+// ROTA DE CADASTRO DO PRODUTO
+router.post("/create", async (req, res) => {
+    try {
+        const newProduct = await Product.create(req.body);
+        res.status(201).json({
+            message: "Produto cadastrado com sucesso!",
+            data: newProduct
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Erro ao cadastrar produto" });
+    }
+});
 
 module.exports = router;
-

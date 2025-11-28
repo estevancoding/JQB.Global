@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Center - Cadastro de Produtos</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-brand"><span class="brand-main">JBQ.Global</span></div>
+    <div class="nav-title">Seller Center</div>
+    <div class="nav-tag">MVP - Squad 1</div>
+</nav>
+
+<div class="container-form">
+    <a href="../index.html" class="back-link">
+        <span class="material-icons-round" style="font-size: 20px; margin-right: 8px;">arrow_back</span>
+        Voltar ao Menu
+    </a>
+
+    <header class="page-header">
+        <h1>Cadastro de Produtos</h1>
+        <p>Preencha as informações obrigatórias para cadastrar um item.</p>
+    </header>
+
+    <main class="form-card">
+        <form id="productForm">
+
+            <!-- Nome -->
+            <div class="form-group full-width">
+                <label for="name">Nome do Produto <span>*</span></label>
+                <input type="text" id="name" placeholder="Ex: Caixa de parafusos Allen" required maxlength="100">
+            </div>
+
+            <!-- Preço -->
+            <div class="form-group">
+                <label for="price">Preço (R$) <span>*</span></label>
+                <input type="number" id="price" placeholder="0,00" required min="0" step="0.01">
+            </div>
+
+            <!-- Estoque -->
+            <div class="form-group">
+                <label for="stock">Qtd. em Estoque <span>*</span></label>
+                <input type="number" id="stock" placeholder="0" required min="0">
+            </div>
+
+            <!-- Descrição -->
+            <div class="form-group full-width">
+                <label for="description">Descrição <span class="optional">(Opcional)</span></label>
+                <textarea id="description" placeholder="Detalhes técnicos, dimensões, observações, etc."></textarea>
+            </div>
+
+            <button type="submit" id="btnSubmit">Cadastrar Produto</button>
+        </form>
+    </main>
+</div>
+
+<footer class="footer-cadastro">
+    <p>Aceleradora Dual de Talentos - Ânima Educação & JBQ.Global</p>
+    <p>Tela desenvolvida pelos membros do Squad 1</p>
+    <p>2025.2</p>
+</footer>
+
+<script src="../js/cadastro.js"></script>
+
+</body>
+</html>

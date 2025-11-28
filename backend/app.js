@@ -1,15 +1,14 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
-const routes = require("./routes/router")
-
-app.use(cors());
-app.use(express.json());
-app.use(routes);
+const cors = require("cors");
 
 require("./db/conn");
 
-// Inicia o servidor!
-app.listen(3000, function () {
-  console.log(`Servidor Online!`);
-});
+app.use(cors());
+app.use(express.json());
+
+// Rotas
+const router = require("./routes/router");
+app.use("/", router);
+
+app.listen(3000, () => console.log("Servidor rodando na porta 3000"));

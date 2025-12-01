@@ -1,10 +1,13 @@
-# Projeto JQB.Global - Aceleradora Dual
+# Projeto JQB.Global - Seller Center
 
-Este projeto é uma aplicação desenvolvida no contexto da **Aceleradora Dual**, uma iniciativa da **Ânima Educação** em parceria com a **JBQ.Global**.
+Este projeto é uma aplicação de **Seller Center** desenvolvida no contexto da **Aceleradora Dual**, uma iniciativa da **Ânima Educação** em parceria com a **JBQ.Global**.
 
-O desenvolvimento foi realizado de maneira integrada e colaborativa, unindo esforços entre a **Squad 1** e a **Squad 5**, que compartilham o mesmo time de desenvolvimento.
+O desenvolvimento foi realizado de maneira integrada e colaborativa entre duas squads que compartilham o mesmo time de desenvolvimento, cujas funcionalidades são acessíveis através de uma **Homepage** central desenvolvida pelo time de front-end:
 
-Ambas funcionalidades desenvolvidas pelas squads podem ser acessadas através de uma home page.
+*   **Squad 1:** Responsável pelo módulo de **Cadastro de Produtos**.
+*   **Squad 5:** Responsável pelo módulo de **Gestão de Estoque**.
+
+![Homepage do Seller Center](anexos/homepageView.png)
 
 ---
 ## Tecnologias e Frameworks
@@ -21,8 +24,9 @@ Ambas funcionalidades desenvolvidas pelas squads podem ser acessadas através de
 *   **CORS:** para habilitar requisições de diferentes origens.
 
 ---
+## Squads e Funcionalidades
 
-### SQUAD 1
+### SQUAD 1 - Cadastro de Produtos
 
 #### Liderança
 *   **Product Owner (PO):** Amanda Vitoria
@@ -39,7 +43,7 @@ Ambas funcionalidades desenvolvidas pelas squads podem ser acessadas através de
     *   Felipe Coelho 
 
 
-### SQUAD 5
+### SQUAD 5 - Gestão de Estoque
 
 #### Liderança
 *   **Product Owner (PO):** Alvaro Almeida
@@ -67,3 +71,7 @@ Ambas funcionalidades desenvolvidas pelas squads podem ser acessadas através de
 
 2. **Frontend:**
    O frontend é composto por arquivos estáticos. Você pode abrir o arquivo `frontend/index.html` diretamente no navegador.
+
+## 📸 Visualização da Aplicação
+
+

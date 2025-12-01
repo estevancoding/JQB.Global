@@ -1,4 +1,7 @@
 const API_URL = 'http://localhost:3000/product';
+let allProducts = [];
+let currentPage = 1;
+const itemsPerPage = 12;
 
 window.onload = fetchProdutos;
 
@@ -10,37 +13,12 @@ function removeErrorMessage(row) {
     }
 }
 
-// Exibe a tabela
 async function fetchProdutos() {
     try {
         const response = await fetch(API_URL);
-        const produtos = await response.json();
+        allProducts = await response.json();
         
-        const tbody = document.getElementById('listaProdutos');
-        tbody.innerHTML = '';
-
-        produtos.forEach(produto => {
-            const tr = document.createElement('tr');
-            tr.dataset.id = produto._id;
-            
-            const nome = produto.name || 'Sem nome';
-            const preco = produto.price ? parseFloat(produto.price).toFixed(2).replace('.', ',') : '0,00';
-            
-            tr.innerHTML = `
-                <td>${nome}</td>
-                <td>${produto.description || '-'}</td>
-                <td>R$ ${preco}</td>
-                <td class="stock-cell">${produto.stock}</td>
-                <td>
-                    <button class="btn-editar">Editar</button>
-                </td>
-            `;
-            
-            const btn = tr.querySelector('.btn-editar');
-            btn.addEventListener('click', () => toggleEdicao(btn, produto));
-
-            tbody.appendChild(tr);
-        });
+        renderProducts();
 
         document.getElementById('loading').style.display = 'none';
         document.getElementById('tabelaProdutos').style.display = 'table';
@@ -50,6 +28,68 @@ async function fetchProdutos() {
     }
 }
 
+// Exibe a tabela
+function renderProducts() {
+    const tbody = document.getElementById('listaProdutos');
+    tbody.innerHTML = '';
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const productsToRender = allProducts.slice(startIndex, endIndex);
+
+    productsToRender.forEach(produto => {
+        const tr = document.createElement('tr');
+        tr.dataset.id = produto._id;
+        
+        const nome = produto.name || 'Sem nome';
+        const preco = produto.price ? parseFloat(produto.price).toFixed(2).replace('.', ',') : '0,00';
+        
+        tr.innerHTML = `
+            <td>${nome}</td>
+            <td>${produto.description || '-'}</td>
+            <td>R$ ${preco}</td>
+            <td class="stock-cell">${produto.stock}</td>
+            <td>
+                <button class="btn-editar">Editar</button>
+            </td>
+        `;
+        
+        const btn = tr.querySelector('.btn-editar');
+        btn.addEventListener('click', () => toggleEdicao(btn, produto));
+
+        tbody.appendChild(tr);
+    });
+
+    renderPaginationControls();
+}
+
+//Botoes da paginação
+function renderPaginationControls() {
+    const totalPages = Math.ceil(allProducts.length / itemsPerPage);
+    const container = document.getElementById('pagination-controls');
+    container.innerHTML = '';
+    if (totalPages <= 1) return;
+
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        
+        if (i === currentPage) {
+            btn.classList.add('active');
+        }
+
+        btn.addEventListener('click', () => {
+            if (currentPage !== i) {
+                currentPage = i;
+                renderProducts();
+            }
+        });
+
+        container.appendChild(btn);
+    }
+}
+
+// Modo de edição
 async function toggleEdicao(btn, produto) {
     const row = btn.closest('tr');
     const stockCell = row.querySelector('.stock-cell');
@@ -57,7 +97,6 @@ async function toggleEdicao(btn, produto) {
 
     removeErrorMessage(row);
 
-    // Modo de edição
     if (!isSaving) {
 
         const tbody = row.parentNode;
@@ -67,7 +106,7 @@ async function toggleEdicao(btn, produto) {
         row.classList.add('row-editing');
 
         const currentStock = stockCell.innerText;
-        row.dataset.originalStock = currentStock; // Store original value
+        row.dataset.originalStock = currentStock;
         stockCell.innerHTML = `
             <div class="input-wrapper" style="display: flex; align-items: center;">
                 <input type="number" class="input-estoque-edit" value="${currentStock}" required min="0" max="99999">

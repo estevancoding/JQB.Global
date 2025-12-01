@@ -43,6 +43,9 @@ O desenvolvimento foi realizado de maneira integrada e colaborativa entre duas s
     *   Felipe Coelho 
 
 
+<video src="anexos/FuncionalidadeSquad1.mp4" controls width="100%"></video>
+
+
 ### SQUAD 5 - Gestão de Estoque
 
 #### Liderança
@@ -72,6 +75,5 @@ O desenvolvimento foi realizado de maneira integrada e colaborativa entre duas s
 2. **Frontend:**
    O frontend é composto por arquivos estáticos. Você pode abrir o arquivo `frontend/index.html` diretamente no navegador.
 
-## 📸 Visualização da Aplicação
 
 

@@ -42,7 +42,9 @@ O desenvolvimento foi realizado de maneira integrada e colaborativa entre duas s
     *   Bruno Rodrigues
     *   Felipe Coelho
 
+![Funcionalidade Squad 1](anexos/FuncionalidadeSquad1.png)
 
+---
 
 ### SQUAD 5 - Gestão de Estoque
 
@@ -60,8 +62,7 @@ O desenvolvimento foi realizado de maneira integrada e colaborativa entre duas s
     *   Bruno Rodrigues
     *   Felipe Coelho
 
-
-
+![Funcionalidade Squad 5](anexos/FuncionalidadeSquad5.png)
 
 ---
 ## Dependências e Execução

@@ -62,6 +62,7 @@ Todas as telas possuem responsividade Mobile funcional.
 
 *   **Desenvolvimento Back-end:**
     *   Bruno Rodrigues
+    *   Jordan Estevan
     *   Felipe Coelho
 
 ![Funcionalidade Squad 5](anexos/FuncionalidadeSquad5.png)
